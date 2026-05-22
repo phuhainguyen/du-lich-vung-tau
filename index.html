@@ -956,13 +956,13 @@ function switchTab(name){
 }
 
 function shareWeb(){
-  var url='https://du-lich-vung-tau.netlify.app';
+  var url='https://phuhainguyen.github.io/du-lich-vung-tau';
   if(navigator.share){navigator.share({title:'Du Lịch Vũng Tàu',url:url}).catch(function(){});}
   else{safeCopy(url,LANG==='vi'?'✅ Đã sao chép! Chia sẻ ngay nhé 🚀':LANG==='zh'?'✅ 已复制！快分享吧 🚀':'✅ Copied! Share it now 🚀');}
   var s=parseInt(localStorage.getItem('ks')||'0')+1;localStorage.setItem('ks',s);
   var e=document.getElementById('vcShare');if(e)e.textContent=(s+3240).toLocaleString('vi-VN');
 }
-function copyLink(){safeCopy('https://du-lich-vung-tau.netlify.app',LANG==='vi'?'✅ Đã sao chép link web!':LANG==='zh'?'✅ 网址已复制！':'✅ Website link copied!');}
+function copyLink(){safeCopy('https://phuhainguyen.github.io/du-lich-vung-tau',LANG==='vi'?'✅ Đã sao chép link web!':LANG==='zh'?'✅ 网址已复制！':'✅ Website link copied!');}
 var _toastTimer;
 function showToast(msg){
   var t=document.getElementById('toast');
