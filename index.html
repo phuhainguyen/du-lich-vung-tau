@@ -925,8 +925,8 @@ function anim(id,target,dur){
 function initV(){
   var v=JSON.parse(localStorage.getItem('kv')||'{}'),t=todayKey();
   if(!v[t])v[t]=0;v[t]++;localStorage.setItem('kv',JSON.stringify(v));
-  var td=v[t],tot=Object.values(v).reduce(function(a,b){return a+b;},0)+12480;
-  var sh=parseInt(localStorage.getItem('ks')||'0')+3240;
+  var td=v[t],tot=Object.values(v).reduce(function(a,b){return a+b;},0)+45230;
+  var sh=parseInt(localStorage.getItem('ks')||'0')+8120;
   anim('vcToday',td,900);anim('vcTotal',tot,1600);
   anim('vcOnline',Math.floor(Math.random()*22)+8,700);anim('vcShare',sh,1200);
   setInterval(function(){var e=document.getElementById('vcOnline');if(e)e.textContent=(Math.floor(Math.random()*22)+8).toLocaleString('vi-VN');},30000);
@@ -960,7 +960,7 @@ function shareWeb(){
   if(navigator.share){navigator.share({title:'Du Lịch Vũng Tàu',url:url}).catch(function(){});}
   else{safeCopy(url,LANG==='vi'?'✅ Đã sao chép! Chia sẻ ngay nhé 🚀':LANG==='zh'?'✅ 已复制！快分享吧 🚀':'✅ Copied! Share it now 🚀');}
   var s=parseInt(localStorage.getItem('ks')||'0')+1;localStorage.setItem('ks',s);
-  var e=document.getElementById('vcShare');if(e)e.textContent=(s+3240).toLocaleString('vi-VN');
+  var e=document.getElementById('vcShare');if(e)e.textContent=(s+8120).toLocaleString('vi-VN');
 }
 function copyLink(){safeCopy('https://phuhainguyen.github.io/du-lich-vung-tau',LANG==='vi'?'✅ Đã sao chép link web!':LANG==='zh'?'✅ 网址已复制！':'✅ Website link copied!');}
 var _toastTimer;
@@ -1030,6 +1030,7 @@ document.addEventListener('DOMContentLoaded',function(){
 </script>
 </body>
 </html>
+
 
 
 
