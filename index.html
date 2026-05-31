@@ -1,0 +1,1090 @@
+a<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Du Lịch Vũng Tàu – Thành Phố Biển Xanh</title>
+<meta name="description" content="Khám phá Vũng Tàu: danh lam thắng cảnh, ẩm thực hải sản, khách sạn đẹp — hướng dẫn du lịch từ người địa phương Mr. Hải">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://upload.wikimedia.org" crossorigin>
+<link rel="dns-prefetch" href="https://upload.wikimedia.org">
+<meta name="theme-color" content="#0a3d62">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Du Lịch VT">
+<link rel="apple-touch-icon" href="vit2.jpg">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{--red:#0a3d62;--red2:#1e8bc3;--dark:#06263d;--bg:#eef6fb;--card:#fff;--txt:#1a2e3b;--txt2:#4a6a7c;--radius:14px;--sand:#f0c040}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
+a{text-decoration:none;color:inherit}
+button,a,input,select{touch-action:manipulation}
+img{display:block;width:100%;object-fit:cover}
+
+/* NAVBAR */
+.nav{background:#fff;border-bottom:3px solid var(--red);position:sticky;top:0;z-index:900;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.nav-inner{max-width:1200px;margin:auto;padding:0 16px;display:flex;align-items:center;gap:12px;height:60px}
+.nav-logo{height:42px;border-radius:8px}
+.nav-title{font-size:1.1rem;font-weight:700;color:var(--red);flex:1}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap}
+.nav-links a{padding:6px 12px;border-radius:8px;font-size:.85rem;font-weight:600;color:var(--txt2);transition:.2s}
+.nav-links a:hover{background:var(--red);color:#fff}
+.lang-wrap{display:flex;gap:4px;margin-left:8px}
+.lang-btn{border:2px solid var(--red);background:transparent;color:var(--red);padding:4px 10px;border-radius:8px;font-size:.8rem;font-weight:700;cursor:pointer;transition:.2s}
+.lang-btn.active{background:var(--red);color:#fff}
+.install-btn{background:var(--red);color:#fff;border:none;padding:6px 14px;border-radius:20px;font-size:.82rem;font-weight:700;cursor:pointer;transition:.2s;white-space:nowrap}
+.install-btn:hover{background:var(--red2);transform:scale(1.05)}
+.ham{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--red)}
+.mob-menu{display:none;flex-direction:column;gap:4px;background:#fff;padding:10px 16px;border-bottom:2px solid #eee}
+.mob-menu a{padding:8px 0;font-weight:600;color:var(--txt2);border-bottom:1px solid #f0f0f0}
+@media(max-width:768px){.nav-links{display:none}.ham{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px}.mob-menu.open{display:flex}.mob-menu a{padding:14px 0;font-size:1rem}.btn-map,.btn-book,.btn-detail{min-height:44px;padding:10px 14px;font-size:.82rem}.tab-btn{min-height:44px;padding:10px 14px;font-size:.85rem}.card-btns{gap:12px}.search-box input{font-size:16px!important}.search-box button{width:44px;height:44px}.hero-zalo{padding:12px 22px;font-size:.88rem}.grid{gap:14px}.install-btn{min-height:36px;padding:8px 14px}.btn-spot-map{width:44px;height:44px}.hero{padding:70px 16px 80px;min-height:auto}.hero h1{font-size:clamp(1.8rem,8vw,3rem)}.hero-sub{font-size:.92rem;margin-bottom:22px}.lang-btn{padding:3px 7px;font-size:.75rem}.lang-wrap{gap:3px;margin-left:4px}.card-img{height:180px}.section{padding:20px 12px}.tabs{gap:8px;flex-wrap:wrap}.nav-title{font-size:.92rem}.nav-inner{height:54px}.vc-num{font-size:1.2rem}.visitor-bar{padding:8px 12px}.card{border-radius:10px}}@media(max-width:420px){.grid{grid-template-columns:1fr}.lang-btn{padding:2px 5px;font-size:.7rem}.tab-btn{padding:8px 10px;font-size:.78rem}.hero{padding:60px 12px 80px}.hero h1{font-size:clamp(1.6rem,9vw,2.5rem)}}
+
+/* SEARCH */
+.search-wrap{background:#fff;padding:10px 16px;border-bottom:1px solid #e8e8e8;position:relative;z-index:850}
+.search-box{max-width:700px;margin:auto;position:relative}
+.search-box input{width:100%;padding:12px 50px 12px 18px;border:2px solid #ddd;border-radius:30px;font-size:1rem;outline:none;transition:.2s}
+.search-box input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(230,57,70,.12)}
+.search-box button{position:absolute;right:6px;top:50%;transform:translateY(-50%);background:var(--red);border:none;color:#fff;width:38px;height:38px;border-radius:50%;font-size:1.1rem;cursor:pointer;transition:.2s}
+.search-box button:hover{background:var(--red2)}
+.search-dropdown{position:absolute;top:calc(100% + 8px);left:0;right:0;background:#fff;border:1.5px solid #e0e0e0;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.15);z-index:1000;display:none;max-height:420px;overflow-y:auto}
+.search-dropdown.show{display:block}
+.sd-item{display:flex;align-items:center;gap:12px;padding:11px 16px;cursor:pointer;transition:.15s;border-bottom:1px solid #f5f5f5;color:var(--txt);text-decoration:none}
+.sd-item:last-child{border-bottom:none}
+.sd-item:hover{background:#fff5f5}
+.sd-icon{width:36px;height:36px;border-radius:8px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;overflow:hidden}
+.sd-name{font-weight:700;font-size:.9rem;color:#111}
+.sd-cat{font-size:.76rem;color:#999;margin-top:2px}
+.search-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:800}
+.search-overlay.show{display:block}
+
+/* HERO */
+.hero{
+  min-height:92vh;
+  background:
+    linear-gradient(160deg,rgba(0,0,0,.10) 0%,rgba(0,0,0,.15) 50%,rgba(0,20,50,.35) 100%),
+    url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1800&q=90') center/cover no-repeat;
+  background-color:#0a3d62;
+  color:#fff;padding:100px 16px 90px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:80px;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z' fill='%23eef6fb'/%3E%3C/svg%3E") no-repeat bottom/cover}
+.hero-eyebrow{font-size:.85rem;letter-spacing:3px;text-transform:uppercase;color:var(--sand);font-weight:600;margin-bottom:14px}
+.hero h1{font-size:clamp(2.4rem,7vw,5rem);font-weight:800;line-height:1.1;margin-bottom:10px;text-shadow:0 2px 6px rgba(0,0,0,.95),0 5px 32px rgba(0,0,0,.85)}
+.hero h1 em{color:var(--sand);font-style:normal}.hero h1{text-transform:none}.hero-tagline{font-size:1.05rem;letter-spacing:5px;font-weight:700;color:var(--sand);opacity:.9;margin:4px 0 20px}
+.hero-sub{font-size:1.05rem;opacity:.9;max-width:580px;margin:0 auto 32px;line-height:1.7}
+.hero-zalo{display:inline-flex;align-items:center;gap:8px;background:var(--sand);color:#0a3d62;padding:12px 28px;border-radius:30px;font-weight:800;font-size:.95rem;box-shadow:0 4px 20px rgba(0,0,0,.25);transition:.2s}
+.hero-zalo:hover{transform:translateY(-3px);background:#f5d76e}
+
+/* VISITOR */
+.visitor-bar{background:var(--dark);color:#fff;padding:10px 16px}
+.visitor-inner{max-width:1200px;margin:auto;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center}
+.vc{text-align:center;padding:4px 16px;border-right:1px solid rgba(255,255,255,.15)}
+.vc:last-child{border-right:none}
+.vc-num{font-size:1.4rem;font-weight:800;color:#ffd166}
+.vc-lbl{font-size:.72rem;opacity:.7;text-transform:uppercase;letter-spacing:.5px}
+.share-btn{background:var(--red);color:#fff;border:none;padding:8px 20px;border-radius:20px;font-weight:700;font-size:.85rem;cursor:pointer;transition:.2s}
+.share-btn:hover{background:var(--red2)}
+
+/* SECTION */
+.section{max-width:1200px;margin:0 auto;padding:32px 16px}
+.sec-title{font-size:1.5rem;font-weight:800;color:var(--dark);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.sec-title::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,var(--red),transparent);border-radius:2px}
+.sec-sub{font-size:.88rem;color:var(--txt2);margin-bottom:20px}
+
+/* TRAVEL TABS */
+.tab-bar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.tab-btn{padding:8px 20px;border-radius:20px;border:2px solid var(--red);background:#fff;color:var(--red);font-weight:700;font-size:.88rem;cursor:pointer;transition:.2s}
+.tab-btn.active{background:var(--red);color:#fff}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.card{background:#fff;border-radius:var(--radius);box-shadow:0 2px 14px rgba(0,0,0,.07);overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-5px);box-shadow:0 8px 28px rgba(0,0,0,.13)}
+.card-img{width:100%;height:210px;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0;display:block}
+.card-emoji{height:210px;display:flex;align-items:center;justify-content:center;font-size:4.5rem;border-radius:var(--radius) var(--radius) 0 0}
+.card-body{padding:16px;flex:1;display:flex;flex-direction:column}
+.card-tag{display:inline-block;background:#fff0f0;color:var(--red);padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:700;margin-bottom:8px}
+.card-body h3{font-size:1rem;font-weight:700;margin-bottom:7px;color:var(--txt)}
+.card-body p{font-size:.83rem;color:var(--txt2);margin-bottom:10px;line-height:1.55;flex:1}
+.card-addr{font-size:.78rem;color:#666;margin-bottom:4px;display:flex;align-items:flex-start;gap:4px}
+.card-addr strong{color:var(--red);flex-shrink:0}
+.card-btns{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.btn-map{display:inline-flex;align-items:center;gap:5px;background:#f0f7ff;color:#0077b6;border:1.5px solid #0077b6;padding:7px 14px;border-radius:20px;font-size:.8rem;font-weight:700;transition:.2s;cursor:pointer}
+.btn-map:hover{background:#0077b6;color:#fff}
+.btn-detail{display:inline-flex;align-items:center;gap:5px;background:var(--red);color:#fff;padding:7px 14px;border-radius:20px;font-size:.8rem;font-weight:700;transition:.2s;cursor:pointer}
+.btn-detail:hover{background:var(--red2)}
+.btn-book{display:inline-flex;align-items:center;gap:5px;background:#2d6a4f;color:#fff;padding:7px 14px;border-radius:20px;font-size:.8rem;font-weight:700;transition:.2s;cursor:pointer}
+.btn-book:hover{background:#1b4332}
+
+
+
+/* OWNER BANNER */
+.owner-banner{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:#fff;padding:24px 16px;text-align:center;border-top:4px solid var(--red)}
+.owner-banner h3{font-size:1.1rem;font-weight:800;margin-bottom:4px;color:#ffd166}
+.owner-banner p{font-size:.88rem;opacity:.85;margin-bottom:14px}
+.owner-cards{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:16px}
+.owner-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:10px 20px;font-size:.88rem}
+.owner-card strong{color:#ffd166;font-size:1rem}
+.zalo-contact-btn{display:inline-flex;align-items:center;gap:10px;background:#0068FF;color:#fff;padding:12px 28px;border-radius:30px;font-weight:800;font-size:1rem;box-shadow:0 4px 18px rgba(0,104,255,.4);transition:.2s;text-decoration:none}
+.zalo-contact-btn:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,104,255,.5)}
+.zalo-contact-btn .zicon{font-size:1.4rem}
+
+/* FOOTER */
+footer{background:var(--dark);color:#fff;text-align:center;padding:20px 16px}
+footer a{color:#ffd166;font-weight:700}
+.copy-btn{margin-top:12px;background:var(--red);color:#fff;border:none;padding:10px 24px;border-radius:20px;font-weight:700;cursor:pointer;font-size:.9rem;transition:.2s}
+.copy-btn:hover{background:var(--red2)}
+.toast{position:fixed;bottom:112px;left:50%;transform:translateX(-50%);background:#1a1a2e;color:#fff;padding:11px 26px;border-radius:24px;font-size:.88rem;z-index:10000;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;white-space:nowrap;max-width:90vw;box-shadow:0 4px 20px rgba(0,0,0,.35)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-4px)}
+
+/* FLOATING ZALO */
+.zalo-float{position:fixed;bottom:24px;right:20px;z-index:990;display:flex;flex-direction:column;align-items:center;gap:4px}
+.zalo-float a{display:flex;align-items:center;justify-content:center;width:56px;height:56px;background:#0068FF;border-radius:50%;box-shadow:0 4px 18px rgba(0,104,255,.5);font-size:1.7rem;transition:.2s;animation:pulse 2s infinite}
+.zalo-float a:hover{transform:scale(1.1)}
+.zalo-float span{font-size:.7rem;color:#fff;background:#0068FF;padding:2px 8px;border-radius:10px;font-weight:700;white-space:nowrap}
+@keyframes pulse{0%,100%{box-shadow:0 4px 18px rgba(0,104,255,.5)}50%{box-shadow:0 4px 28px rgba(0,104,255,.8)}}
+/* FOOD MAP */
+.map-header{background:linear-gradient(135deg,#fffbeb,#fef3c7);border-left:4px solid var(--sand);padding:16px 20px;border-radius:12px;margin-bottom:14px}
+.map-tip{font-size:.76rem;color:#78350f;font-weight:700;letter-spacing:1px;margin-bottom:6px;text-transform:uppercase}
+.map-header p{font-size:.9rem;color:#4b3000;line-height:1.6}
+.map-warn-top{background:#fff7ed;border:1.5px solid #fb923c;border-radius:12px;padding:12px 16px;font-size:.83rem;color:#7c2d12;margin-bottom:18px;line-height:1.6}
+.area-section{margin-bottom:22px}
+.area-title{font-size:.92rem;font-weight:800;color:var(--txt);padding:10px 14px;border-radius:10px;background:#f8fafc;margin-bottom:12px;border-left:3px solid var(--red)}
+.spot-list{display:flex;flex-direction:column;gap:10px}
+.spot-item{background:var(--card);border-radius:12px;padding:14px 16px;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.06);border:1px solid #f0f0f0}
+.spot-info{flex:1;min-width:0}
+.spot-badge{font-size:.71rem;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:6px}
+.spot-badge.green{background:#d1fae5;color:#065f46}
+.spot-badge.yellow{background:#fef3c7;color:#92400e}
+.spot-badge.red{background:#fee2e2;color:#991b1b}
+.spot-name{font-weight:700;color:var(--txt);font-size:.93rem;margin-bottom:3px}
+.spot-meta{font-size:.79rem;color:var(--txt2);margin-bottom:3px}
+.spot-order{font-size:.79rem;color:var(--txt2);line-height:1.5}
+.btn-spot-map{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:#f0f7ff;border:1.5px solid #0077b6;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:.2s;cursor:pointer}
+.btn-spot-map:hover{background:#0077b6}
+.map-zalo-tip{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:14px;padding:18px 20px;text-align:center;margin-top:20px}
+.map-zalo-tip strong{display:block;margin-bottom:10px;font-size:.93rem;color:var(--txt)}
+.btn-zalo-tip{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:11px 24px;border-radius:30px;font-weight:700;font-size:.9rem;box-shadow:0 4px 14px rgba(0,0,0,.2);min-height:44px}
+</style>
+</head>
+<body>
+
+<div class="search-overlay" id="srOverlay" onclick="closeSearch()"></div>
+<div class="toast" id="toast"></div>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-inner">
+    <img src="vit2.jpg" alt="logo" class="nav-logo" onerror="this.style.display='none'">
+    <span class="nav-title" data-vi="Du Lịch Vũng Tàu" data-en="Vung Tau Travel" data-zh="头顿旅游" data-zh="头顿旅游">Du Lịch Vũng Tàu</span>
+    <div class="nav-links">
+      <a href="#travel" data-vi="🏖 Khám Phá" data-en="🏖 Explore" data-zh="🏖 探索">🏖 Khám Phá</a>
+      <a href="#owner-contact" data-vi="📞 Liên Hệ" data-en="📞 Contact" data-zh="📞 联系">📞 Liên Hệ</a>
+    </div>
+    <div class="lang-wrap">
+      <button class="lang-btn active" data-lang="vi" onclick="setLang('vi')">VI</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="zh" onclick="setLang('zh')">中文</button>
+    </div>
+    <button class="install-btn" id="installBtn" onclick="installApp()" style="display:none" data-vi="📲 Cài App" data-en="📲 Install" data-zh="📲 安装">📲 Cài App</button>
+    <button class="ham" onclick="toggleMenu()">☰</button>
+  </div>
+  <div class="mob-menu" id="mobMenu">
+    <a href="#travel" onclick="closeMenu()" data-vi="🏖 Khám Phá Vũng Tàu" data-en="🏖 Explore Vung Tau" data-zh="🏖 探索头顿">🏖 Khám Phá Vũng Tàu</a>
+    <a href="#owner-contact" onclick="closeMenu()" data-vi="📞 Liên Hệ Mr. Hải" data-en="📞 Contact Mr. Hai" data-zh="📞 联系 Mr. Hải">📞 Liên Hệ Mr. Hải</a>
+  </div>
+</nav>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <div class="search-box">
+    <input type="text" id="searchInput"
+      data-vi-ph="🔍 Tìm địa điểm, món ăn, khách sạn..."
+      data-en-ph="🔍 Search places, food, hotels..."
+      placeholder="🔍 Tìm địa điểm, món ăn, khách sạn..."
+      oninput="onSearch(this.value)" onfocus="onSearchFocus()" onkeydown="onSearchKey(event)">
+    <button onclick="doSearch()">🔍</button>
+    <div class="search-dropdown" id="searchDrop"></div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero" style="position:relative;">
+  <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1800&q=90"
+       alt="Vũng Tàu"
+       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;opacity:0.7;"
+       onerror="this.style.display='none'" />
+  <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,20,50,0.6),rgba(0,20,50,0.5));z-index:1;"></div>
+  <div style="position:relative;z-index:2;width:100%;">
+  <p class="hero-eyebrow">✦ Tỉnh Bà Rịa – Vũng Tàu · Việt Nam ✦</p>
+  <h1>DU LỊCH VŨNG TÀU</h1>
+  <p class="hero-tagline" data-vi="✦ KHÁM PHÁ VŨNG TÀU ✦" data-en="✦ EXPLORE VUNG TAU ✦" data-zh="✦ 探索头顿 ✦">✦ KHÁM PHÁ VŨNG TÀU ✦</p>
+  <p class="hero-sub" data-vi="Nơi sóng biển vỗ về, nắng vàng trải dài — điểm đến lý tưởng của miền Nam với bãi cát trắng, hải sản tươi và Tháp Tam Thắng biểu tượng" data-en="Where waves meet golden sands — South Vietnam's ideal getaway with white beaches, fresh seafood and the iconic Tam Thang Tower" data-zh="海浪轻抚，阳光灿烂——越南南方理想度假地，拥有白色沙滩、新鲜海鲜与标志性三胜塔">Nơi sóng biển vỗ về, nắng vàng trải dài — điểm đến lý tưởng của miền Nam với bãi cát trắng, hải sản tươi và Tháp Tam Thắng biểu tượng</p>
+  <a href="https://zalo.me/0786226822" target="_blank" class="hero-zalo">
+    💬 <span data-vi="Hỏi Mr. Hải – Người Vũng Tàu" data-en="Ask Mr. Hai – Vung Tau Local" data-zh="询问 Mr. Hải – 头顿本地向导">Hỏi Mr. Hải – Người Vũng Tàu</span>
+  </a>
+  </div>
+</div>
+
+<!-- VISITOR -->
+<div class="visitor-bar">
+  <div class="visitor-inner">
+    <div class="vc">
+      <div class="vc-num" id="vcToday">0</div>
+      <div class="vc-lbl" data-vi="Hôm Nay" data-en="Today" data-zh="今日">Hôm Nay</div>
+    </div>
+    <div class="vc">
+      <div class="vc-num" id="vcTotal">0</div>
+      <div class="vc-lbl" data-vi="Tổng Lượt" data-en="Total" data-zh="总访问">Tổng Lượt</div>
+    </div>
+    <div class="vc">
+      <div class="vc-num" id="vcOnline">0</div>
+      <div class="vc-lbl" data-vi="Đang Online" data-en="Online" data-zh="在线">Đang Online</div>
+    </div>
+    <div class="vc">
+      <div class="vc-num" id="vcShare">0</div>
+      <div class="vc-lbl" data-vi="Đã Chia Sẻ" data-en="Shared" data-zh="已分享">Đã Chia Sẻ</div>
+    </div>
+    <button class="share-btn" onclick="shareWeb()" data-vi="📤 Chia Sẻ" data-en="📤 Share" data-zh="📤 分享">📤 Chia Sẻ</button>
+  </div>
+</div>
+
+<!-- QUẢNG CÁO -->
+<div style="display:none">
+  <div style="max-width:1200px;margin:auto">
+    <div style="font-size:.7rem;color:#bbb;text-align:center;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px">Quảng Cáo</div>
+    <div style="background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);border-radius:18px;padding:20px 24px;box-shadow:0 6px 24px rgba(0,0,0,.18);position:relative;overflow:hidden">
+      <!-- Deco -->
+      <div style="position:absolute;right:-40px;top:-40px;width:160px;height:160px;background:rgba(230,57,70,.12);border-radius:50%"></div>
+      <div style="position:absolute;right:80px;bottom:-50px;width:120px;height:120px;background:rgba(255,209,102,.08);border-radius:50%"></div>
+
+      <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;position:relative">
+        <!-- Logo -->
+        <div style="width:72px;height:72px;background:#fff;border-radius:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 14px rgba(0,0,0,.2);overflow:hidden">
+          <img src="https://hikosen-cara.vn/wp-content/uploads/2021/03/logo-hikosen-cara.png" alt="Hikosen Cara"
+            style="width:64px;height:64px;object-fit:contain;border-radius:0"
+            onerror="this.parentNode.innerHTML='<span style=\'font-size:2rem\'>👔</span>'">
+        </div>
+
+        <!-- Thông tin -->
+        <div style="flex:1;min-width:200px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;flex-wrap:wrap">
+            <span style="color:#ffd166;font-weight:900;font-size:1.25rem;letter-spacing:1px">HIKOSEN CARA</span>
+            <span style="background:#e63946;color:#fff;font-size:.68rem;font-weight:700;padding:2px 9px;border-radius:10px">🇯🇵 Nhật Bản</span>
+            <span style="background:#28a745;color:#fff;font-size:.68rem;font-weight:700;padding:2px 9px;border-radius:10px">Từ 1980</span>
+          </div>
+          <div style="color:rgba(255,255,255,.92);font-size:.88rem;font-weight:600;margin-bottom:8px">
+            Công ty TNHH Hikosen Cara – Thời trang may mặc, túi xách, thủ công mỹ nghệ
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;font-size:.78rem;color:rgba(255,255,255,.7)">
+            <span>📍 Đường số 1, KCN Đông Xuyên, Vũng Tàu</span>
+            <span>📞 <a href="tel:+842543848374" style="color:#ffd166;font-weight:700">0254 3848374</a></span>
+            <span>🏪 17 cửa hàng toàn quốc</span>
+            <span>👥 300+ nhân viên</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
+            <span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);font-size:.72rem;padding:3px 10px;border-radius:10px">👔 Quần áo người lớn & trẻ em</span>
+            <span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);font-size:.72rem;padding:3px 10px;border-radius:10px">👜 Túi xách & balo</span>
+            <span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);font-size:.72rem;padding:3px 10px;border-radius:10px">🎨 Thủ công mỹ nghệ</span>
+            <span style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);font-size:.72rem;padding:3px 10px;border-radius:10px">🌍 Xuất khẩu Nhật, Mỹ, Úc</span>
+          </div>
+        </div>
+
+        <!-- Nút -->
+        <div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0">
+          <a href="https://hikosen-cara.vn" target="_blank" rel="noopener"
+            style="background:#e63946;color:#fff;padding:10px 20px;border-radius:20px;font-weight:800;font-size:.85rem;text-align:center;text-decoration:none;transition:.2s;display:block"
+            onmouseover="this.style.background='#c1121f'" onmouseout="this.style.background='#e63946'">
+            🌐 Website
+          </a>
+          <a href="https://www.google.com/maps/search/Hikosen+Cara+KCN+Đông+Xuyên+Vũng+Tàu" target="_blank" rel="noopener"
+            style="background:rgba(255,255,255,.15);color:#fff;padding:10px 20px;border-radius:20px;font-weight:700;font-size:.85rem;text-align:center;text-decoration:none;border:1px solid rgba(255,255,255,.3);transition:.2s;display:block"
+            onmouseover="this.style.background='rgba(255,255,255,.25)'" onmouseout="this.style.background='rgba(255,255,255,.15)'">
+            📍 Bản Đồ
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QUẢNG CÁO NEW WAYS -->
+<div class="ad-section" style="padding:16px;">
+  <div style="background:linear-gradient(135deg,#1e1b4b,#4c1d95);border-radius:16px;padding:20px;color:white;text-align:center;">
+    
+    <!-- Logo -->
+    <img src="data:image/jpeg;base64,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" alt="New Ways"
+         style="height:80px;width:auto;margin:0 auto 12px;display:block;filter:drop-shadow(0 0 12px rgba(249,115,22,0.8));"/>
+    
+    <!-- Tên & mô tả -->
+    <h3 style="font-size:18px;font-weight:900;margin:0 0 4px;">
+      <span style="color:#E53935;">NEW</span>&nbsp;<span style="color:#1565C0;">WAYS</span>
+    </h3>
+    <p style="font-size:13px;color:rgba(255,255,255,0.8);margin:0 0 12px;">Chuyên Cho Thuê Mặt Bằng Kinh Doanh</p>
+    
+    <!-- Tags -->
+    <div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:14px;">
+      <span style="background:rgba(255,255,255,0.15);border-radius:50px;padding:3px 10px;font-size:11px;">🌊 Gần Biển</span>
+      <span style="background:rgba(255,255,255,0.15);border-radius:50px;padding:3px 10px;font-size:11px;">🏙️ Trung Tâm</span>
+      <span style="background:rgba(255,255,255,0.15);border-radius:50px;padding:3px 10px;font-size:11px;">🏘️ Gần Chợ</span>
+    </div>
+    
+    <!-- Thông tin -->
+    <p style="font-size:13px;color:rgba(255,255,255,0.75);margin:0 0 4px;">📍 TP. Vũng Tàu, Bà Rịa – Vũng Tàu</p>
+    <p style="font-size:13px;color:rgba(255,255,255,0.75);margin:0 0 14px;">🏢 Khách sạn · Nhà hàng · Cafe · Kho bãi</p>
+    
+    <!-- Nút bấm -->
+    <div style="display:flex;gap:8px;">
+      <a href="https://phuhainguyen.github.io/cho-thu-m-t-b-ng-v-ng-t-u/" target="_blank"
+         style="flex:1;background:#7C3AED;color:white;padding:10px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700;text-align:center;">
+        🌐 Xem Giỏ Hàng
+      </a>
+      <a href="tel:0786226822"
+         style="flex:1;background:#F97316;color:white;padding:10px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700;text-align:center;">
+        📞 0786.226.822
+      </a>
+    </div>
+    
+  </div>
+</div>
+
+<!-- DU LỊCH -->
+<div id="travel" class="section">
+  <h2 class="sec-title">🏖️ <span data-vi="Du Lịch Vũng Tàu" data-en="Vung Tau Travel Guide" data-zh="头顿旅游攻略">Du Lịch Vũng Tàu</span></h2>
+  <p class="sec-sub" data-vi="Danh lam thắng cảnh, ẩm thực đặc sản và khách sạn tốt nhất — bấm xem chi tiết & bản đồ" data-en="Top attractions, local food and best hotels — click to view details & map" data-zh="景点名胜、特色美食和最佳酒店 — 点击查看详情和地图">Danh lam thắng cảnh, ẩm thực đặc sản và khách sạn tốt nhất — bấm xem chi tiết &amp; bản đồ</p>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('sights')" id="tab-sights" data-vi="🏛️ Danh Lam" data-en="🏛️ Attractions" data-zh="🏛️ 景点">🏛️ Danh Lam</button>
+    <button class="tab-btn" onclick="switchTab('food')" id="tab-food" data-vi="🍜 Ẩm Thực" data-en="🍜 Food" data-zh="🍜 美食">🍜 Ẩm Thực</button>
+    <button class="tab-btn" onclick="switchTab('hotel')" id="tab-hotel" data-vi="🏨 Khách Sạn" data-en="🏨 Hotels" data-zh="🏨 酒店">🏨 Khách Sạn</button>
+    <button class="tab-btn" onclick="switchTab('map')" id="tab-map" data-vi="🗺️ Ăn Không Chặt Chém" data-en="🗺️ Food Map" data-zh="🗺️ 不宰客餐厅">🗺️ Ăn Không Chặt Chém</button>
+  </div>
+
+  <!-- DANH LAM -->
+  <div class="tab-content active" id="tab-sights-content">
+    <div class="grid">
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Christ_of_Vung_Tau.jpg/800px-Christ_of_Vung_Tau.jpg" alt="Tượng Chúa Kitô Vua" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <span class="card-tag" data-vi="Thắng Cảnh" data-en="Landmark" data-zh="景点">Thắng Cảnh</span>
+          <h3 data-vi="Tượng Chúa Kitô Vua" data-en="Christ of Vung Tau Statue">Tượng Chúa Kitô Vua</h3>
+          <p class="lang-vi">Tượng cao 32m trên đỉnh núi Nhỏ – biểu tượng nổi tiếng nhất Vũng Tàu, nhìn ra toàn cảnh biển tuyệt đẹp.</p>
+          <p class="lang-en" hidden>32m statue atop Small Mountain — Vung Tau's most iconic landmark with panoramic sea views.</p>
+          <p class="lang-zh" hidden>32米高耶稣雕像矗立小山顶，是头顿最著名地标，可俯瞰全景大海。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">Đường Trần Phú, Phường 1, Vũng Tàu</span><span class="lang-en" hidden>Tran Phu St, Ward 1, Vung Tau</span></div>
+          <div class="card-addr"><strong>⏰</strong> <span class="lang-vi">7:00 – 17:00 hàng ngày</span><span class="lang-en" hidden>7:00 AM – 5:00 PM daily</span><span class="lang-zh" hidden>每日 7:00 – 17:00</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Tượng+Chúa+Kitô+Vua+Vũng+Tàu" target="_blank" rel="noopener">🗺️ <span data-vi="Bản Đồ" data-en="Map" data-zh="地图">Bản Đồ</span></a>
+            <a class="btn-detail" href="https://vi.wikipedia.org/wiki/T%C6%B0%E1%BB%A3ng_Ch%C3%BAa_Kit%C3%B4_Vua_(V%C5%A9ng_T%C3%A0u)" target="_blank" rel="noopener">ℹ️ <span data-vi="Chi Tiết" data-en="Details" data-zh="详情">Chi Tiết</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Bach_Dinh_Vung_Tau.jpg/800px-Bach_Dinh_Vung_Tau.jpg" alt="Bạch Dinh" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#c1121f,#9d0208)';this.style.display='none'">
+        <div class="card-body">
+          <span class="card-tag" data-vi="Di Tích Lịch Sử" data-en="Historic Site" data-zh="历史遗址">Di Tích Lịch Sử</span>
+          <h3 data-vi="Bạch Dinh (Villa Blanche)" data-en="Bach Dinh White Villa">Bạch Dinh (Villa Blanche)</h3>
+          <p class="lang-vi">Biệt thự cổ Pháp xây năm 1898, lưu giữ cổ vật quý giá, kiến trúc châu Âu đẹp và không gian lịch sử độc đáo.</p>
+          <p class="lang-en" hidden>French colonial villa built in 1898, housing priceless artifacts with stunning European architecture.</p>
+          <p class="lang-zh" hidden>建于1898年的法国殖民地别墅，收藏珍贵文物，欧式建筑精美，历史空间独特。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">4 Trần Phú, Phường 1, Vũng Tàu</span><span class="lang-en" hidden>4 Tran Phu St, Ward 1, Vung Tau</span><span class="lang-zh" hidden>陈富路4号，第1坊，头顿</span></div>
+          <div class="card-addr"><strong>⏰</strong> <span class="lang-vi">7:30 – 17:00 (nghỉ Thứ Hai)</span><span class="lang-en" hidden>7:30 AM – 5:00 PM (Mon closed)</span><span class="lang-zh" hidden>7:30 – 17:00（周一休息）</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Bạch+Dinh+4+Trần+Phú+Vũng+Tàu" target="_blank" rel="noopener">🗺️ <span data-vi="Bản Đồ" data-en="Map" data-zh="地图">Bản Đồ</span></a>
+            <a class="btn-detail" href="https://vi.wikipedia.org/wiki/B%E1%BA%A1ch_Di%E1%BB%B1nh" target="_blank" rel="noopener">ℹ️ <span data-vi="Chi Tiết" data-en="Details" data-zh="详情">Chi Tiết</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/V%C5%A9ng_T%C3%A0u_Beach.jpg/800px-V%C5%A9ng_T%C3%A0u_Beach.jpg" alt="Bãi Sau" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <span class="card-tag" data-vi="Bãi Biển" data-en="Beach" data-zh="海滩">Bãi Biển</span>
+          <h3 data-vi="Bãi Sau (Back Beach)" data-en="Back Beach">Bãi Sau (Back Beach)</h3>
+          <p class="lang-vi">Bãi biển dài đẹp nhất Vũng Tàu với sóng nhẹ, cát trắng mịn và nhiều hoạt động thể thao biển. Lý tưởng cho gia đình.</p>
+          <p class="lang-en" hidden>Vung Tau's most beautiful long beach with gentle waves, fine white sand, and water sports — perfect for families.</p>
+          <p class="lang-zh" hidden>头顿最美长滩，波浪轻柔，白沙细腻，有多种水上运动，非常适合家庭出游。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">Đường Thùy Vân, Phường 8, Vũng Tàu</span><span class="lang-en" hidden>Thuy Van St, Ward 8, Vung Tau</span><span class="lang-zh" hidden>翠云路，第8坊，头顿</span></div>
+          <div class="card-addr"><strong>⏰</strong> <span class="lang-vi">Tắm biển 6:00 – 18:00 hàng ngày</span><span class="lang-en" hidden>Swimming 6:00 AM – 6:00 PM daily</span><span class="lang-zh" hidden>游泳 每日 6:00 – 18:00</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Bãi+Sau+Thùy+Vân+Vũng+Tàu" target="_blank" rel="noopener">🗺️ <span data-vi="Bản Đồ" data-en="Map" data-zh="地图">Bản Đồ</span></a>
+            <a class="btn-detail" href="https://vi.wikipedia.org/wiki/V%C5%A9ng_T%C3%A0u" target="_blank" rel="noopener">ℹ️ <span data-vi="Chi Tiết" data-en="Details" data-zh="详情">Chi Tiết</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Front_Beach_Vung_Tau.jpg/800px-Front_Beach_Vung_Tau.jpg" alt="Bãi Trước" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <span class="card-tag" data-vi="Bãi Biển" data-en="Beach" data-zh="海滩">Bãi Biển</span>
+          <h3 data-vi="Bãi Trước (Front Beach)" data-en="Front Beach">Bãi Trước (Front Beach)</h3>
+          <p class="lang-vi">Bãi biển trung tâm sôi động với nhiều quán hải sản ven biển, ghế nằm thư giãn và hoàng hôn tuyệt đẹp.</p>
+          <p class="lang-en" hidden>The lively central beach with seafood restaurants along the shore, sun loungers, and breathtaking sunsets.</p>
+          <p class="lang-zh" hidden>热闹的市中心海滩，沿岸有众多海鲜餐厅和躺椅，可欣赏绝美日落。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">Đường Quang Trung & Trần Phú, P.1, Vũng Tàu</span><span class="lang-en" hidden>Quang Trung & Tran Phu St, Ward 1</span></div>
+          <div class="card-addr"><strong>⏰</strong> <span class="lang-vi">Mở cửa 24/7</span><span class="lang-en" hidden>Open 24/7</span><span class="lang-zh" hidden>24小时开放</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Bãi+Trước+Vũng+Tàu+Quang+Trung" target="_blank" rel="noopener">🗺️ <span data-vi="Bản Đồ" data-en="Map" data-zh="地图">Bản Đồ</span></a>
+            <a class="btn-detail" href="https://vi.wikipedia.org/wiki/V%C5%A9ng_T%C3%A0u" target="_blank" rel="noopener">ℹ️ <span data-vi="Chi Tiết" data-en="Details" data-zh="详情">Chi Tiết</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Thich_Ca_Phat_Dai_Vung_Tau.jpg/800px-Thich_Ca_Phat_Dai_Vung_Tau.jpg" alt="Thích Ca Phật Đài" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <span class="card-tag" data-vi="Tâm Linh" data-en="Spiritual" data-zh="宗教圣地">Tâm Linh</span>
+          <h3 data-vi="Thích Ca Phật Đài" data-en="Thich Ca Phat Dai Pagoda">Thích Ca Phật Đài</h3>
+          <p class="lang-vi">Quần thể Phật giáo lớn nhất Vũng Tàu với nhiều tượng Phật uy nghi, vườn hoa tĩnh lặng và không khí linh thiêng.</p>
+          <p class="lang-en" hidden>Vung Tau's largest Buddhist complex with majestic Buddha statues, tranquil gardens, and a sacred atmosphere.</p>
+          <p class="lang-zh" hidden>头顿最大佛教建筑群，拥有庄严佛像、宁静花园和神圣氛围。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">Đường Trần Phú, Phường 5, Vũng Tàu</span><span class="lang-en" hidden>Tran Phu St, Ward 5, Vung Tau</span><span class="lang-zh" hidden>陈富路，第5坊，头顿</span></div>
+          <div class="card-addr"><strong>⏰</strong> <span class="lang-vi">7:00 – 17:00 hàng ngày</span><span class="lang-en" hidden>7:00 AM – 5:00 PM daily</span><span class="lang-zh" hidden>每日 7:00 – 17:00</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Thích+Ca+Phật+Đài+Vũng+Tàu" target="_blank" rel="noopener">🗺️ <span data-vi="Bản Đồ" data-en="Map" data-zh="地图">Bản Đồ</span></a>
+            <a class="btn-detail" href="https://vi.wikipedia.org/wiki/Th%C3%ADch_Ca_Ph%E1%BA%ADt_%C4%90%C3%A0i_(V%C5%A9ng_T%C3%A0u)" target="_blank" rel="noopener">ℹ️ <span data-vi="Chi Tiết" data-en="Details" data-zh="详情">Chi Tiết</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Lang_Ong_Nam_Hai_-_Vung_Tau.jpg" alt="Lăng Ông Nam Hải Vũng Tàu" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#8d6e63,#5d4037)';d.textContent='⛩️';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag" data-vi="Di Tích" data-en="Heritage" data-zh="遗产">Di Tích</span>
+          <h3 data-vi="Lăng Ông Nam Hải" data-en="Lang Ong Nam Hai Temple">Lăng Ông Nam Hải</h3>
+          <p class="lang-vi">Đền thờ cá Ông (cá voi) theo tín ngưỡng ngư dân Nam Bộ, lưu giữ bộ xương cá voi khổng lồ hơn 100 tuổi.</p>
+          <p class="lang-en" hidden>Whale worship temple following Southern fishing tradition, housing a giant whale skeleton over 100 years old.</p>
+          <p class="lang-zh" hidden>供奉鲸鱼（海神）的祠庙，保存着100多年历史的巨型鲸鱼骨架。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">Đường Hoàng Hoa Thám, Phường 2, Vũng Tàu</span><span class="lang-en" hidden>Hoang Hoa Tham St, Ward 2, Vung Tau</span><span class="lang-zh" hidden>黄花探路，第2坊，头顿</span></div>
+          <div class="card-addr"><strong>⏰</strong> <span class="lang-vi">6:00 – 18:00 hàng ngày</span><span class="lang-en" hidden>6:00 AM – 6:00 PM daily</span><span class="lang-zh" hidden>每日 6:00 – 18:00</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Lăng+Ông+Nam+Hải+Hoàng+Hoa+Thám+Vũng+Tàu" target="_blank" rel="noopener">🗺️ <span data-vi="Bản Đồ" data-en="Map" data-zh="地图">Bản Đồ</span></a>
+            <a class="btn-detail" href="https://vi.wikipedia.org/wiki/V%C5%A9ng_T%C3%A0u#Du_l%E1%BB%8Bch" target="_blank" rel="noopener">ℹ️ <span data-vi="Chi Tiết" data-en="Details" data-zh="详情">Chi Tiết</span></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ẨM THỰC -->
+  <div class="tab-content" id="tab-food-content">
+    <div class="grid">
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/5/5a/B%C3%A1nh_kh%E1%BB%8Dt_by_Nguyenhai314.jpg" alt="Bánh Khọt Vũng Tàu" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#ff9a56,#ff6b35)';d.textContent='🥞';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag" data-vi="Đặc Sản" data-en="Specialty" data-zh="特色菜">Đặc Sản</span> <span class="card-tag" style="background:#d1fae5;color:#065f46;border:1.5px solid #6ee7b7">✅ Bình dân</span>
+          <h3 data-vi="Bánh Khọt Vũng Tàu" data-en="Vung Tau Banh Khot">Bánh Khọt Vũng Tàu</h3>
+          <p class="lang-vi">Bánh khọt giòn ngoài mềm trong với nhân tôm tươi, ăn kèm rau sống và nước mắm chua ngọt đặc trưng Vũng Tàu.</p>
+          <p class="lang-en" hidden>Crispy outside, soft inside mini pancakes with fresh shrimp, served with fresh herbs and sweet fish sauce.</p>
+          <p class="lang-zh" hidden>外脆内软的小煎饼，配新鲜虾仁，搭配生蔬菜和头顿特色甜辣鱼露。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">14 Nguyễn Trường Tộ, Phường 1, Vũng Tàu</span><span class="lang-en" hidden>14 Nguyen Truong To St, Ward 1, Vung Tau</span><span class="lang-zh" hidden>阮常觉路14号，第1坊，头顿</span></div>
+          <div class="card-addr"><strong>💰</strong> <span class="lang-vi">25.000 – 45.000 đ/phần</span><span class="lang-en" hidden>25,000 – 45,000 VND/serving</span><span class="lang-zh" hidden>25,000 – 45,000越南盾/份</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Bánh+Khọt+14+Nguyễn+Trường+Tộ+Vũng+Tàu" target="_blank" rel="noopener">🗺️ <span data-vi="Xem Bản Đồ" data-en="View Map" data-zh="查看地图">Xem Bản Đồ</span></a>
+            <a class="btn-detail" href="https://vi.wikipedia.org/wiki/B%C3%A1nh_kh%E1%BB%8Dt" target="_blank" rel="noopener">ℹ️ <span data-vi="Giới Thiệu" data-en="About" data-zh="简介">Giới Thiệu</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Steamed_crabs.jpg" alt="Ghẹ Hấp Bia Vũng Tàu" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#48cae4,#0096c7)';d.textContent='🦀';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag" data-vi="Hải Sản" data-en="Seafood" data-zh="海鲜">Hải Sản</span> <span class="card-tag" style="background:#fef3c7;color:#92400e;border:1.5px solid #fcd34d">⚡ Hỏi giá/kg</span>
+          <h3 data-vi="Ghẹ Hấp Bia" data-en="Beer-Steamed Crab">Ghẹ Hấp Bia</h3>
+          <p class="lang-vi">Ghẹ biển tươi sống hấp bia thơm nồng, thịt chắc ngọt, chấm muối tiêu chanh – món hải sản hấp dẫn nhất Vũng Tàu.</p>
+          <p class="lang-en" hidden>Fresh sea crabs steamed with beer, firm sweet meat, served with salt, pepper and lime.</p>
+          <p class="lang-zh" hidden>用啤酒蒸制的新鲜海蟹，肉质紧实甜美，蘸椒盐柠檬汁——头顿最受欢迎的海鲜。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">3 Trần Phú, Phường 1, Vũng Tàu</span><span class="lang-en" hidden>3 Tran Phu St, Ward 1, Vung Tau</span><span class="lang-zh" hidden>陈富路3号，第1坊，头顿</span></div>
+          <div class="card-addr"><strong>💰</strong> <span class="lang-vi">180.000 – 350.000 đ/kg</span><span class="lang-en" hidden>180,000 – 350,000 VND/kg</span><span class="lang-zh" hidden>18万 – 35万越南盾/公斤</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Ghẹ+Hấp+3+Trần+Phú+Vũng+Tàu+hải+sản" target="_blank" rel="noopener">🗺️ <span data-vi="Xem Bản Đồ" data-en="View Map" data-zh="查看地图">Xem Bản Đồ</span></a>
+            <a class="btn-detail" href="https://www.google.com/search?q=ghẹ+hấp+bia+Vũng+Tàu" target="_blank" rel="noopener">🔍 <span data-vi="Tìm Thêm" data-en="Search More" data-zh="搜索更多">Tìm Thêm</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Bun_cha_ca_nha_trang.jpg" alt="Bún Cá Chợ Lê Lợi Vũng Tàu" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#f9c74f,#f3722c)';d.textContent='🍜';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag" data-vi="Ăn Sáng" data-en="Breakfast" data-zh="早餐">Ăn Sáng</span> <span class="card-tag" style="background:#d1fae5;color:#065f46;border:1.5px solid #6ee7b7">✅ Bình dân</span>
+          <h3 data-vi="Bún Cá Chợ Lê Lợi" data-en="Fish Noodle Soup">Bún Cá Chợ Lê Lợi</h3>
+          <p class="lang-vi">Bún cá với nước dùng ngọt từ xương cá biển, cá chiên vàng giòn và rau tươi – món sáng được yêu thích nhất Vũng Tàu.</p>
+          <p class="lang-en" hidden>Fish noodle soup with sweet broth from sea fish bones, crispy fried fish, and fresh herbs.</p>
+          <p class="lang-zh" hidden>以海鱼骨熬制清甜汤底的鱼粉，配酥炸鱼块和新鲜香草——头顿最受欢迎的早餐。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">Chợ Lê Lợi, Đường Lê Lợi, Phường 1, Vũng Tàu</span><span class="lang-en" hidden>Le Loi Market, Le Loi St, Ward 1, Vung Tau</span><span class="lang-zh" hidden>黎利市场，黎利路，第1坊，头顿</span></div>
+          <div class="card-addr"><strong>💰</strong> <span class="lang-vi">30.000 – 55.000 đ/tô</span><span class="lang-en" hidden>30,000 – 55,000 VND/bowl</span><span class="lang-zh" hidden>3万 – 5.5万越南盾/碗</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Bún+Cá+Chợ+Lê+Lợi+Vũng+Tàu" target="_blank" rel="noopener">🗺️ <span data-vi="Xem Bản Đồ" data-en="View Map" data-zh="查看地图">Xem Bản Đồ</span></a>
+            <a class="btn-detail" href="https://www.google.com/search?q=bún+cá+Vũng+Tàu+ngon" target="_blank" rel="noopener">🔍 <span data-vi="Tìm Thêm" data-en="Search More" data-zh="搜索更多">Tìm Thêm</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Lobster_bg021104.jpg" alt="Tôm Hùm Nướng Vũng Tàu" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#e63946,#9d0208)';d.textContent='🦞';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag" data-vi="Cao Cấp" data-en="Premium" data-zh="高档">Cao Cấp</span>
+          <h3 data-vi="Tôm Hùm Nướng" data-en="Grilled Lobster">Tôm Hùm Nướng</h3>
+          <p class="lang-vi">Tôm hùm biển tươi sống nướng lửa than hoặc hấp gừng – trải nghiệm ẩm thực cao cấp tại Vũng Tàu.</p>
+          <p class="lang-en" hidden>Live sea lobster grilled over charcoal or steamed with ginger — a premium dining experience.</p>
+          <p class="lang-zh" hidden>炭火烤制或姜蒸的新鲜龙虾——头顿顶级美食体验。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">12 Hoàng Hoa Thám, Phường 2, Vũng Tàu</span><span class="lang-en" hidden>12 Hoang Hoa Tham St, Ward 2, Vung Tau</span><span class="lang-zh" hidden>黄花探路12号，第2坊，头顿</span></div>
+          <div class="card-addr"><strong>💰</strong> <span class="lang-vi">650.000 – 1.200.000 đ/kg</span><span class="lang-en" hidden>$26 – $48/kg</span><span class="lang-zh" hidden>65万 – 120万越南盾/公斤</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Tôm+Hùm+12+Hoàng+Hoa+Thám+Vũng+Tàu" target="_blank" rel="noopener">🗺️ <span data-vi="Xem Bản Đồ" data-en="View Map" data-zh="查看地图">Xem Bản Đồ</span></a>
+            <a class="btn-detail" href="https://www.google.com/search?q=tôm+hùm+nướng+Vũng+Tàu" target="_blank" rel="noopener">🔍 <span data-vi="Tìm Thêm" data-en="Search More" data-zh="搜索更多">Tìm Thêm</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/1/15/Mantis_shrimp_from_Gili_Trawangan.jpg" alt="Bề Bề Rang Me Vũng Tàu" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#52b788,#2d6a4f)';d.textContent='🦐';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag" data-vi="Hải Sản" data-en="Seafood" data-zh="海鲜">Hải Sản</span> <span class="card-tag" style="background:#d1fae5;color:#065f46;border:1.5px solid #6ee7b7">✅ Bình dân</span>
+          <h3 data-vi="Bề Bề Rang Me" data-en="Tamarind Mantis Shrimp">Bề Bề Rang Me</h3>
+          <p class="lang-vi">Tôm tít rang me chua ngọt đậm đà – đặc sản biển Vũng Tàu được du khách yêu thích nhất với vị chua ngọt cay hòa quyện.</p>
+          <p class="lang-en" hidden>Mantis shrimp stir-fried with tamarind sauce — Vung Tau's most beloved seafood specialty.</p>
+          <p class="lang-zh" hidden>罗氏虾炒罗望子酱，酸甜辣味俱全——头顿最受欢迎的海鲜特产。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">Đường Thùy Vân, Phường 8, Vũng Tàu</span><span class="lang-en" hidden>Thuy Van St, Ward 8, Vung Tau</span><span class="lang-zh" hidden>翠云路，第8坊，头顿</span></div>
+          <div class="card-addr"><strong>💰</strong> <span class="lang-vi">120.000 – 200.000 đ/kg</span><span class="lang-en" hidden>120,000 – 200,000 VND/kg</span><span class="lang-zh" hidden>12万 – 20万越南盾/公斤</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Bề+Bề+Rang+Me+Thùy+Vân+Vũng+Tàu" target="_blank" rel="noopener">🗺️ <span data-vi="Xem Bản Đồ" data-en="View Map" data-zh="查看地图">Xem Bản Đồ</span></a>
+            <a class="btn-detail" href="https://www.google.com/search?q=bề+bề+rang+me+Vũng+Tàu+đặc+sản" target="_blank" rel="noopener">🔍 <span data-vi="Tìm Thêm" data-en="Search More" data-zh="搜索更多">Tìm Thêm</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/4/49/Banh_mi.jpg" alt="Bánh Mì Vũng Tàu" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#ffd166,#ef8c3a)';d.textContent='🥖';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag" data-vi="Ăn Sáng" data-en="Breakfast" data-zh="早餐">Ăn Sáng</span> <span class="card-tag" style="background:#d1fae5;color:#065f46;border:1.5px solid #6ee7b7">✅ Bình dân</span>
+          <h3 data-vi="Bánh Mì Vũng Tàu" data-en="Vung Tau Banh Mi">Bánh Mì Vũng Tàu</h3>
+          <p class="lang-vi">Bánh mì giòn rụm với nhân phong phú: pa-tê, thịt nguội, rau thơm và tương ớt – ăn sáng rẻ ngon không đâu bằng.</p>
+          <p class="lang-en" hidden>Crispy baguette stuffed with pâté, cold cuts, fresh herbs, and chili sauce — the tastiest affordable breakfast.</p>
+          <p class="lang-zh" hidden>酥脆法棍配猪肝酱、冷切肉、香草和辣椒酱——最实惠美味的早餐。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">Chợ Vũng Tàu và các góc phố trung tâm</span><span class="lang-en" hidden>Vung Tau Market and central street corners</span></div>
+          <div class="card-addr"><strong>💰</strong> <span class="lang-vi">15.000 – 30.000 đ/ổ</span><span class="lang-en" hidden>15,000 – 30,000 VND/piece</span><span class="lang-zh" hidden>1.5万 – 3万越南盾/个</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Bánh+Mì+ngon+Vũng+Tàu" target="_blank" rel="noopener">🗺️ <span data-vi="Xem Bản Đồ" data-en="View Map" data-zh="查看地图">Xem Bản Đồ</span></a>
+            <a class="btn-detail" href="https://vi.wikipedia.org/wiki/B%C3%A1nh_m%C3%AC_Vi%E1%BB%87t_Nam" target="_blank" rel="noopener">ℹ️ <span data-vi="Giới Thiệu" data-en="About" data-zh="简介">Giới Thiệu</span></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- KHÁCH SẠN -->
+  <div class="tab-content" id="tab-hotel-content">
+    <div class="grid">
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/9/96/JW_Marriott_Shell_Pool_Phu_Quoc.jpg" alt="The Imperial Hotel Vũng Tàu" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#1a1a2e,#16213e)';d.textContent='🏨';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag">⭐⭐⭐⭐⭐</span>
+          <h3>The Imperial Hotel &amp; Spa</h3>
+          <p class="lang-vi">Khách sạn 5 sao sang trọng bậc nhất Vũng Tàu với hồ bơi vô cực nhìn ra biển, nhà hàng đẳng cấp và spa cao cấp.</p>
+          <p class="lang-en" hidden>Vung Tau's most luxurious 5-star hotel with an infinity pool overlooking the sea, fine dining, and premium spa.</p>
+          <p class="lang-zh" hidden>头顿最豪华五星级酒店，拥有俯瞰大海无边泳池、高档餐厅和顶级水疗中心。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">159 Thùy Vân, Phường 8, Vũng Tàu</span><span class="lang-en" hidden>159 Thuy Van St, Ward 8, Vung Tau</span><span class="lang-zh" hidden>翠云路159号，第8坊，头顿</span></div>
+          <div class="card-addr"><strong>💰</strong> <span class="lang-vi">2.500.000 – 8.000.000 đ/đêm</span><span class="lang-en" hidden>$100 – $320/night</span><span class="lang-zh" hidden>250万 – 800万越南盾/晚</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/The+Imperial+Hotel+159+Thùy+Vân+Vũng+Tàu" target="_blank" rel="noopener">🗺️ <span data-vi="Bản Đồ" data-en="Map" data-zh="地图">Bản Đồ</span></a>
+            <a class="btn-book" href="https://www.imperialhotel.com.vn/" target="_blank" rel="noopener">🏨 <span data-vi="Đặt Phòng" data-en="Book Now" data-zh="立即预订">Đặt Phòng</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Vinpearl_Hotel_-_Nha_Trang.jpg" alt="Pullman Vung Tau Hotel" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#2b4590,#1a2e6b)';d.textContent='🏩';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag">⭐⭐⭐⭐⭐</span>
+          <h3>Pullman Vung Tau</h3>
+          <p class="lang-vi">Khách sạn 5 sao quốc tế AccorHotels, tiện nghi hiện đại, vị trí trung tâm, nhìn ra bãi biển thơ mộng.</p>
+          <p class="lang-en" hidden>5-star AccorHotels property, modern amenities, central location with romantic sea views.</p>
+          <p class="lang-zh" hidden>AccorHotels旗下五星级国际酒店，设施现代齐全，地处市中心，可欣赏浪漫海景。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">02 Nam Kỳ Khởi Nghĩa, Phường 1, Vũng Tàu</span><span class="lang-en" hidden>02 Nam Ky Khoi Nghia St, Ward 1</span></div>
+          <div class="card-addr"><strong>💰</strong> <span class="lang-vi">2.200.000 – 6.500.000 đ/đêm</span><span class="lang-en" hidden>$88 – $260/night</span><span class="lang-zh" hidden>220万 – 650万越南盾/晚</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Pullman+Vung+Tau+Hotel" target="_blank" rel="noopener">🗺️ <span data-vi="Bản Đồ" data-en="Map" data-zh="地图">Bản Đồ</span></a>
+            <a class="btn-book" href="https://www.pullman-vungtau.com/" target="_blank" rel="noopener">🏨 <span data-vi="Đặt Phòng" data-en="Book Now" data-zh="立即预订">Đặt Phòng</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Binh_minh_vung_tau_-_panoramio.jpg" alt="Holiday Inn Vung Tau bình minh biển" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#0077b6,#023e8a)';d.textContent='🏪';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag">⭐⭐⭐⭐</span>
+          <h3>Holiday Inn Vung Tau</h3>
+          <p class="lang-vi">Khách sạn 4 sao IHG gần bãi biển, phòng rộng rãi hiện đại, bể bơi đẹp và nhà hàng buffet sáng phong phú.</p>
+          <p class="lang-en" hidden>4-star IHG hotel near the beach, spacious modern rooms, beautiful pool and rich breakfast buffet.</p>
+          <p class="lang-zh" hidden>IHG旗下四星级酒店，近海滩，客房宽敞现代，泳池漂亮，早餐自助丰盛。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">56 Thùy Vân, Phường 8, Vũng Tàu</span><span class="lang-en" hidden>56 Thuy Van St, Ward 8, Vung Tau</span><span class="lang-zh" hidden>翠云路56号，第8坊，头顿</span></div>
+          <div class="card-addr"><strong>💰</strong> <span class="lang-vi">1.200.000 – 3.500.000 đ/đêm</span><span class="lang-en" hidden>$48 – $140/night</span><span class="lang-zh" hidden>120万 – 350万越南盾/晚</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Holiday+Inn+56+Thùy+Vân+Vũng+Tàu" target="_blank" rel="noopener">🗺️ <span data-vi="Bản Đồ" data-en="Map" data-zh="地图">Bản Đồ</span></a>
+            <a class="btn-book" href="https://www.ihg.com/holidayinn/hotels/us/en/vung-tau/vtvni/hoteldetail" target="_blank" rel="noopener">🏨 <span data-vi="Đặt Phòng" data-en="Book Now" data-zh="立即预订">Đặt Phòng</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/2/2c/M%C5%A9i_Nghinh_Phong.JPG" alt="Grand Hotel Vũng Tàu Mũi Nghinh Phong" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#6d6875,#b5838d)';d.textContent='🏰';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag">⭐⭐⭐⭐</span>
+          <h3 data-vi="Grand Hotel Vũng Tàu" data-en="Grand Hotel Vung Tau">Grand Hotel Vũng Tàu</h3>
+          <p class="lang-vi">Khách sạn 4 sao cổ điển tại trung tâm, gần biển Bãi Trước, không gian yên tĩnh và ấm cúng.</p>
+          <p class="lang-en" hidden>Classic 4-star hotel in the city center, near Front Beach, quiet and cozy atmosphere.</p>
+          <p class="lang-zh" hidden>市中心经典四星级酒店，靠近前海滩，环境安静温馨。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">26 Quang Trung, Phường 1, Vũng Tàu</span><span class="lang-en" hidden>26 Quang Trung St, Ward 1, Vung Tau</span><span class="lang-zh" hidden>光中路26号，第1坊，头顿</span></div>
+          <div class="card-addr"><strong>💰</strong> <span class="lang-vi">900.000 – 2.500.000 đ/đêm</span><span class="lang-en" hidden>$36 – $100/night</span><span class="lang-zh" hidden>90万 – 250万越南盾/晚</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Grand+Hotel+26+Quang+Trung+Vũng+Tàu" target="_blank" rel="noopener">🗺️ <span data-vi="Bản Đồ" data-en="Map" data-zh="地图">Bản Đồ</span></a>
+            <a class="btn-book" href="https://www.booking.com/hotel/vn/grand-vung-tau.vi.html" target="_blank" rel="noopener">🏨 <span data-vi="Đặt Phòng" data-en="Book Now" data-zh="立即预订">Đặt Phòng</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/a/a2/View_of_Vung_Tau_from_Vung_Tau_lighthouse_%28August_3%2C_2018%29_%2843913499002%29.jpg" alt="Seaview Hotel Vũng Tàu view biển từ hải đăng" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#48cae4,#00b4d8)';d.textContent='🌊';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag">⭐⭐⭐⭐</span>
+          <h3 data-vi="Seaview Hotel Vũng Tàu" data-en="Seaview Hotel Vung Tau">Seaview Hotel Vũng Tàu</h3>
+          <p class="lang-vi">View biển 4 sao tuyệt đẹp, mọi phòng đều có ban công nhìn ra biển xanh, dịch vụ thân thiện chu đáo.</p>
+          <p class="lang-en" hidden>Beautiful 4-star sea view hotel where every room has a balcony overlooking the blue sea.</p>
+          <p class="lang-zh" hidden>四星级海景酒店，每间客房均设阳台可俯瞰蔚蓝大海，服务热情周到。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">88 Thùy Vân, Phường 8, Vũng Tàu</span><span class="lang-en" hidden>88 Thuy Van St, Ward 8, Vung Tau</span><span class="lang-zh" hidden>翠云路88号，第8坊，头顿</span></div>
+          <div class="card-addr"><strong>💰</strong> <span class="lang-vi">800.000 – 2.000.000 đ/đêm</span><span class="lang-en" hidden>$32 – $80/night</span><span class="lang-zh" hidden>80万 – 200万越南盾/晚</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Seaview+Hotel+88+Thùy+Vân+Vũng+Tàu" target="_blank" rel="noopener">🗺️ <span data-vi="Bản Đồ" data-en="Map" data-zh="地图">Bản Đồ</span></a>
+            <a class="btn-book" href="https://www.booking.com/searchresults.vi.html?ss=Seaview+Hotel+Vung+Tau" target="_blank" rel="noopener">🏨 <span data-vi="Đặt Phòng" data-en="Book Now" data-zh="立即预订">Đặt Phòng</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Sau_Beach_in_Vungtau.jpg" alt="Homestay Biển Xanh Vũng Tàu Bãi Sau" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#52b788,#40916c)';d.textContent='🏡';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag" data-vi="Homestay" data-en="Homestay" data-zh="民宿">Homestay</span>
+          <h3 data-vi="Homestay Biển Xanh" data-en="Blue Sea Homestay">Homestay Biển Xanh</h3>
+          <p class="lang-vi">Homestay gia đình ấm cúng gần biển, không gian xanh mát, giá hợp lý, lý tưởng cho cặp đôi và nhóm bạn.</p>
+          <p class="lang-en" hidden>Cozy family homestay near the beach, lush green space, affordable — ideal for couples and friend groups.</p>
+          <p class="lang-zh" hidden>靠近海滩的温馨家庭民宿，环境绿意盎然，价格实惠，适合情侣和朋友团体。</p>
+          <div class="card-addr"><strong>📍</strong> <span class="lang-vi">33 Hoàng Hoa Thám, Phường 2, Vũng Tàu</span><span class="lang-en" hidden>33 Hoang Hoa Tham St, Ward 2, Vung Tau</span><span class="lang-zh" hidden>黄花探路33号，第2坊，头顿</span></div>
+          <div class="card-addr"><strong>💰</strong> <span class="lang-vi">350.000 – 800.000 đ/đêm</span><span class="lang-en" hidden>$14 – $32/night</span><span class="lang-zh" hidden>35万 – 80万越南盾/晚</span></div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Homestay+33+Hoàng+Hoa+Thám+Vũng+Tàu" target="_blank" rel="noopener">🗺️ <span data-vi="Bản Đồ" data-en="Map" data-zh="地图">Bản Đồ</span></a>
+            <a class="btn-book" href="https://www.booking.com/searchresults.vi.html?ss=Hoang+Hoa+Tham+Vung+Tau+homestay" target="_blank" rel="noopener">🏨 <span data-vi="Đặt Phòng" data-en="Book Now" data-zh="立即预订">Đặt Phòng</span></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BẢN ĐỒ ẨM THỰC -->
+  <div class="tab-content" id="tab-map-content">
+
+    <div class="map-header">
+      <div class="map-tip" data-vi="✦ Bí Kíp Mr. Hải – Người Vũng Tàu Chính Gốc ✦" data-en="✦ Mr. Hai's Tips – True Vung Tau Local ✦" data-zh="✦ Mr. Hải 秘籍——头顿本地人亲授 ✦">✦ Bí Kíp Mr. Hải – Người Vũng Tàu Chính Gốc ✦</div>
+      <p>Địa chỉ cụ thể · Giá thật · <strong>Không bị chặt chém</strong> – Nơi dân địa phương ăn hàng ngày.</p>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/5/5a/B%C3%A1nh_kh%E1%BB%8Dt_by_Nguyenhai314.jpg" alt="Bánh Khọt Vũng Tàu" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#ff9a56,#ff6b35)';d.textContent='🥞';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag" style="background:#d1fae5;color:#065f46;border:1.5px solid #6ee7b7">✅ Không chặt chém</span>
+          <h3>Bánh Khọt Gốc Vú Sữa</h3>
+          <p class="lang-vi">Quán bánh khọt nổi tiếng nhất Vũng Tàu – dân địa phương ăn sáng hàng ngày, du khách ít biết.</p>
+          <p class="lang-zh" hidden>头顿最著名的越式煎饼店——当地人每天早餐必吃，少有游客知晓。</p>
+          <div class="card-addr"><strong>📍</strong> 46 Trương Công Định, Phường 3, Vũng Tàu</div>
+          <div class="card-addr"><strong>⏰</strong> 6:00 – 10:30 sáng (hết sớm)</div>
+          <div class="card-addr"><strong>💰</strong> 15.000 – 30.000 đ/phần</div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Bánh+Khọt+46+Trương+Công+Định+Vũng+Tàu" target="_blank" rel="noopener">🗺️ Bản Đồ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Bun_cha_ca_nha_trang.jpg" alt="Bún Cá Sáng Chợ Lê Lợi Vũng Tàu" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#f9c74f,#f3722c)';d.textContent='🍜';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag" style="background:#d1fae5;color:#065f46;border:1.5px solid #6ee7b7">✅ Không chặt chém</span>
+          <h3>Bún Cá Sáng – Chợ Lê Lợi</h3>
+          <p class="lang-vi">Bún cá thu, cá chẽm tươi ngon nước trong, đặc sản sáng Vũng Tàu không nơi nào sánh bằng.</p>
+          <p class="lang-zh" hidden>用鲭鱼和鲈鱼熬制的清汤鱼粉，是头顿独一无二的早餐特产。</p>
+          <div class="card-addr"><strong>📍</strong> Chợ Lê Lợi, Đường Lê Lợi, Phường 1, Vũng Tàu</div>
+          <div class="card-addr"><strong>⏰</strong> 5:30 – 9:00 sáng</div>
+          <div class="card-addr"><strong>💰</strong> 20.000 – 35.000 đ/tô</div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/Bún+cá+Chợ+Lê+Lợi+Vũng+Tàu" target="_blank" rel="noopener">🗺️ Bản Đồ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/4/49/Banh_mi.jpg" alt="Bánh Mì Sáng Vũng Tàu" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#ffd166,#ef8c3a)';d.textContent='🥖';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag" style="background:#d1fae5;color:#065f46;border:1.5px solid #6ee7b7">✅ Không chặt chém</span>
+          <h3>Bánh Mì Sáng – Vỉa Hè Trung Tâm</h3>
+          <p class="lang-vi">Bánh mì giòn pa-tê thịt nguội, ăn sáng rẻ nhất Vũng Tàu – người địa phương ăn mỗi ngày.</p>
+          <p class="lang-zh" hidden>酥脆猪肝酱冷切肉法棍，头顿最实惠的早餐，当地人天天吃。</p>
+          <div class="card-addr"><strong>📍</strong> Đường Nguyễn Trường Tộ, Phường 1, Vũng Tàu</div>
+          <div class="card-addr"><strong>⏰</strong> 5:30 – 8:30 sáng</div>
+          <div class="card-addr"><strong>💰</strong> 10.000 – 20.000 đ/cái</div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/bánh+mì+sáng+Nguyễn+Trường+Tộ+Vũng+Tàu" target="_blank" rel="noopener">🗺️ Bản Đồ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Steamed_crabs.jpg" alt="Ghẹ Hấp Bia Bình Dân Vũng Tàu" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#48cae4,#0096c7)';d.textContent='🦀';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag" style="background:#fef3c7;color:#92400e;border:1.5px solid #fcd34d">⚡ Hỏi giá trước</span>
+          <h3>Ghẹ Hấp Bia – Quán Vỉa Hè</h3>
+          <p class="lang-vi">Ghẹ biển tươi hấp bia thơm ngon. Tránh quán ven biển menu ảnh đẹp – vào quán nhỏ dân địa phương đông là ngon.</p>
+          <p class="lang-zh" hidden>新鲜啤酒蒸海蟹，美味可口。避开海边图片精美的餐厅，选当地人多的小店才好吃。</p>
+          <div class="card-addr"><strong>📍</strong> Khu vỉa hè gần Chợ Vũng Tàu, Phường 1</div>
+          <div class="card-addr"><strong>⏰</strong> 16:00 – 22:00</div>
+          <div class="card-addr"><strong>💰</strong> 180.000 – 280.000 đ/kg (hỏi giá trước khi gọi)</div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/ghẹ+hấp+bia+vỉa+hè+Chợ+Vũng+Tàu" target="_blank" rel="noopener">🗺️ Bản Đồ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/1/15/Mantis_shrimp_from_Gili_Trawangan.jpg" alt="Ốc Đêm Thùy Vân Vũng Tàu" loading="lazy" onerror="var d=document.createElement('div');d.className='card-emoji';d.style.background='linear-gradient(135deg,#52b788,#2d6a4f)';d.textContent='🦐';this.replaceWith(d)">
+        <div class="card-body">
+          <span class="card-tag" style="background:#fef3c7;color:#92400e;border:1.5px solid #fcd34d">⚡ Hỏi giá trước</span>
+          <h3>Ốc Đêm Bình Dân – Thùy Vân</h3>
+          <p class="lang-vi">Ốc hương, nghêu, bề bề rang me – ăn đêm ven đường. Chọn quán có bảng giá rõ ràng, không vào chỗ không ghi giá.</p>
+          <p class="lang-zh" hidden>香螺、蛤蜊、罗氏虾炒罗望子——路边夜宵摊。选有明确价格牌的店，不要去没标价的地方。</p>
+          <div class="card-addr"><strong>📍</strong> Đường Thùy Vân, Phường 8, Vũng Tàu</div>
+          <div class="card-addr"><strong>⏰</strong> 18:00 – 23:30</div>
+          <div class="card-addr"><strong>💰</strong> 50.000 – 150.000 đ/dĩa (hỏi giá trước)</div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/ốc+đêm+Thùy+Vân+Vũng+Tàu" target="_blank" rel="noopener">🗺️ Bản Đồ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-emoji" style="background:linear-gradient(135deg,#c1121f,#9d0208)">⚠️</div>
+        <div class="card-body">
+          <span class="card-tag" style="background:#fee2e2;color:#991b1b;border:1.5px solid #fca5a5">⚠️ Cẩn thận bị chặt chém</span>
+          <h3>Hải Sản Ven Bãi Trước</h3>
+          <p class="lang-vi">Khu vực dễ bị "thổi giá" nhất Vũng Tàu – khách lạ thường bị tính gấp 2-3 lần giá thật.</p>
+          <p class="lang-zh" hidden>头顿最容易被宰客的区域——外地游客常被收取真实价格的2-3倍。⚠️ 务必先确认价格！</p>
+          <div class="card-addr"><strong>📍</strong> Đường Trần Phú &amp; ven Bãi Trước, Phường 1</div>
+          <div class="card-addr"><strong>💡</strong> Chụp ảnh menu · Hỏi giá từng món · Xác nhận tổng TRƯỚC khi gọi</div>
+          <div class="card-addr"><strong>💡</strong> Không bảng giá = khả năng cao bị "chặt chém"</div>
+          <div class="card-btns">
+            <a class="btn-map" href="https://www.google.com/maps/search/hải+sản+Bãi+Trước+Trần+Phú+Vũng+Tàu" target="_blank" rel="noopener">🗺️ Bản Đồ</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="map-zalo-tip">
+      <strong data-vi="🙋 Không biết chỗ nào ngon &amp; không bị thổi giá?" data-en="🙋 Not sure where to eat without getting overcharged?" data-zh="🙋 不知道哪里好吃又不被宰？">🙋 Không biết chỗ nào ngon &amp; không bị thổi giá?</strong>
+      <span class='lang-vi'>Nhắn Mr. Hải – Người Vũng Tàu tư vấn miễn phí theo ngân sách của bạn!</span><span class='lang-en' hidden>Message Mr. Hai – Vung Tau local for free advice within your budget!</span><span class='lang-zh' hidden>联系Mr. Hải——头顿本地人，免费为您推荐符合预算的餐厅！</span>
+      <br><br>
+      <a href="https://zalo.me/0786226822" target="_blank" rel="noopener" class="btn-zalo-tip" data-vi="💬 Hỏi Ngay Qua Zalo" data-en="💬 Ask Now via Zalo" data-zh="💬 立即通过Zalo咨询">💬 Hỏi Ngay Qua Zalo</a>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- OWNER BANNER -->
+<div class="owner-banner" id="owner-contact">
+  <h3>👑 <span data-vi="Chủ Sở Hữu Website" data-en="Website Owner" data-zh="网站所有者">Chủ Sở Hữu Website</span></h3>
+  <p data-vi="Mọi hợp tác, quảng cáo hoặc thắc mắc — liên hệ trực tiếp với Mr. Hải qua Zalo" data-en="For cooperation, advertising or inquiries — contact Mr. Hai directly via Zalo">Mọi hợp tác, quảng cáo hoặc thắc mắc — liên hệ trực tiếp với Mr. Hải qua Zalo</p>
+  <div class="owner-cards">
+    <div class="owner-card">
+      👤 <span data-vi="Chủ sở hữu" data-en="Owner" data-zh="所有者">Chủ sở hữu</span>: <strong>Mr. Hải</strong>
+    </div>
+    <div class="owner-card">
+      📍 <span data-vi="Địa điểm" data-en="Location" data-zh="地点">Địa điểm</span>: <strong data-vi="Vũng Tàu, Việt Nam" data-en="Vung Tau, Vietnam" data-zh="头顿，越南">Vũng Tàu, Việt Nam</strong>
+    </div>
+    <div class="owner-card">
+      📱 Zalo: <strong>0786 226 822</strong>
+    </div>
+  </div>
+  <a href="https://zalo.me/0786226822" target="_blank" class="zalo-contact-btn">
+    <span class="zicon">💬</span>
+    <span data-vi="Liên Hệ Mr. Hải Qua Zalo" data-en="Contact Mr. Hai via Zalo" data-zh="通过Zalo联系Mr. Hải">Liên Hệ Mr. Hải Qua Zalo</span>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>🏖 <strong data-vi="Du Lịch Vũng Tàu" data-en="Vung Tau Travel" data-zh="头顿旅游">Du Lịch Vũng Tàu</strong></p>
+  <p style="margin:6px 0;opacity:.8;font-size:.85rem">© 2026 Mr. Hải – Vũng Tàu &nbsp;|&nbsp; <a href="https://zalo.me/0786226822">Zalo: 0786226822</a></p>
+  <p style="margin:4px 0;opacity:.55;font-size:.78rem" data-vi="Mọi nội dung thuộc quyền sở hữu của Admin Hải" data-en="All content is owned by Admin Hai" data-zh="所有内容归Admin Hải所有">Mọi nội dung thuộc quyền sở hữu của Admin Hải</p>
+  <button class="copy-btn" onclick="copyLink()" data-vi="🔗 Sao Chép Link Web" data-en="🔗 Copy Website Link" data-zh="🔗 复制网址">🔗 Sao Chép Link Web</button>
+</footer>
+
+<!-- FLOATING ZALO -->
+<div class="zalo-float">
+  <a href="https://zalo.me/0786226822" target="_blank" title="Liên hệ Zalo">💬</a>
+  <span data-vi="Liên hệ Zalo" data-en="Contact Zalo" data-zh="Zalo联系">Liên hệ Zalo</span>
+</div>
+
+<script>
+var LANG = localStorage.getItem('ktcn-lang') || 'vi';
+
+var ALL_ITEMS = [];
+
+function buildSearchIndex() {
+  var travel = [
+    {type:'sight',name:'Tượng Chúa Kitô Vua',en:'Christ Statue Vung Tau',addr:'Trần Phú, P.1',icon:'🗿',tags:'tuong chua kito vua nui nho vung tau du lich tham quan bien',url:'https://vi.wikipedia.org/wiki/T%C6%B0%E1%BB%A3ng_Ch%C3%BAa_Kit%C3%B4_Vua_(V%C5%A9ng_T%C3%A0u)'},
+    {type:'sight',name:'Bạch Dinh',en:'Bach Dinh Villa',addr:'4 Trần Phú, P.1',icon:'🏛️',tags:'bach dinh villa biet thu co phap lich su tham quan vung tau',url:'https://vi.wikipedia.org/wiki/B%E1%BA%A1ch_Di%E1%BB%B1nh'},
+    {type:'sight',name:'Bãi Sau',en:'Back Beach',addr:'Thùy Vân, P.8',icon:'🏖️',tags:'bai sau back beach tam boi bien vung tau cat trang song du lich',url:'https://www.google.com/maps/search/Bãi+Sau+Vũng+Tàu'},
+    {type:'sight',name:'Bãi Trước',en:'Front Beach',addr:'Quang Trung, P.1',icon:'🌊',tags:'bai truoc front beach bien trung tam vung tau tam boi song',url:'https://www.google.com/maps/search/Bãi+Trước+Vũng+Tàu'},
+    {type:'sight',name:'Thích Ca Phật Đài',en:'Buddhist Pagoda',addr:'Trần Phú, P.5',icon:'🛕',tags:'thich ca phat dai chua phat giao linh thieng vung tau tham quan',url:'https://vi.wikipedia.org/wiki/Th%C3%ADch_Ca_Ph%E1%BA%ADt_%C4%90%C3%A0i_(V%C5%A9ng_T%C3%A0u)'},
+    {type:'sight',name:'Lăng Ông Nam Hải',en:'Whale Temple',addr:'Hoàng Hoa Thám, P.2',icon:'⛩️',tags:'lang ong nam hai ca voi den tho vung tau du lich tham quan',url:'https://www.google.com/maps/search/Lăng+Ông+Nam+Hải+Vũng+Tàu'},
+    {type:'food',name:'Bánh Khọt Vũng Tàu',en:'Banh Khot',addr:'14 Nguyễn Trường Tộ, P.1',icon:'🥞',tags:'banh khot dac san an uong vung tau tom chien gion ngon re',url:'https://www.google.com/maps/search/Bánh+Khọt+14+Nguyễn+Trường+Tộ+Vũng+Tàu'},
+    {type:'food',name:'Ghẹ Hấp Bia',en:'Beer Steamed Crab',addr:'3 Trần Phú, P.1',icon:'🦀',tags:'ghe hap bia hai san cua bien vung tau an uong nha hang',url:'https://www.google.com/maps/search/Ghẹ+Hấp+3+Trần+Phú+Vũng+Tàu'},
+    {type:'food',name:'Bún Cá Chợ Lê Lợi',en:'Fish Noodle Soup',addr:'Chợ Lê Lợi, P.1',icon:'🍜',tags:'bun ca an sang cho le loi vung tau com an uong bo buoi sang',url:'https://www.google.com/maps/search/Bún+Cá+Chợ+Lê+Lợi+Vũng+Tàu'},
+    {type:'food',name:'Tôm Hùm Nướng',en:'Grilled Lobster',addr:'12 Hoàng Hoa Thám, P.2',icon:'🦞',tags:'tom hum nuong cao cap hai san sang trong nha hang vung tau',url:'https://www.google.com/maps/search/Tôm+Hùm+12+Hoàng+Hoa+Thám+Vũng+Tàu'},
+    {type:'food',name:'Bề Bề Rang Me',en:'Tamarind Mantis Shrimp',addr:'Thùy Vân, P.8',icon:'🦐',tags:'be be rang me tom tit hai san dac san vung tau chua ngot cay',url:'https://www.google.com/maps/search/Bề+Bề+Rang+Me+Thùy+Vân+Vũng+Tàu'},
+    {type:'food',name:'Bánh Mì Vũng Tàu',en:'Banh Mi',addr:'Chợ Vũng Tàu',icon:'🥖',tags:'banh mi an sang vung tau re ngon cho buoi sang dac san',url:'https://www.google.com/maps/search/Bánh+Mì+ngon+Vũng+Tàu'},
+    {type:'hotel',name:'The Imperial Hotel',en:'The Imperial Hotel',addr:'159 Thùy Vân, P.8',icon:'🏨',tags:'imperial khach san 5 sao sang trong ho boi bien vung tau nghi duong',url:'https://www.imperialhotel.com.vn/'},
+    {type:'hotel',name:'Pullman Vung Tau',en:'Pullman Vung Tau',addr:'02 Nam Kỳ Khởi Nghĩa',icon:'🏩',tags:'pullman khach san 5 sao accor quoc te trung tam vung tau',url:'https://www.pullman-vungtau.com/'},
+    {type:'hotel',name:'Holiday Inn Vung Tau',en:'Holiday Inn',addr:'56 Thùy Vân, P.8',icon:'🏪',tags:'holiday inn khach san 4 sao ihg gan bien vung tau buffet',url:'https://www.ihg.com/holidayinn/hotels/us/en/vung-tau/vtvni/hoteldetail'},
+    {type:'hotel',name:'Grand Hotel Vũng Tàu',en:'Grand Hotel',addr:'26 Quang Trung, P.1',icon:'🏰',tags:'grand hotel khach san 4 sao co dien trung tam vung tau nghi',url:'https://www.booking.com/hotel/vn/grand-vung-tau.vi.html'},
+    {type:'hotel',name:'Seaview Hotel',en:'Seaview Hotel',addr:'88 Thùy Vân, P.8',icon:'🌊',tags:'seaview khach san view bien 4 sao ban cong nhin bien vung tau',url:'https://www.booking.com/searchresults.vi.html?ss=Seaview+Hotel+Vung+Tau'},
+    {type:'hotel',name:'Homestay Biển Xanh',en:'Blue Sea Homestay',addr:'33 Hoàng Hoa Thám, P.2',icon:'🏡',tags:'homestay bien xanh gia re gan bien vung tau nghi duong re',url:'https://www.booking.com/searchresults.vi.html?ss=Hoang+Hoa+Tham+Vung+Tau+homestay'}
+  ];
+  travel.forEach(function(t) { ALL_ITEMS.push(t); });
+}
+
+var _VI_MAP = {'à':'a','á':'a','ả':'a','ã':'a','ạ':'a','ă':'a','ắ':'a','ặ':'a','ẳ':'a','ẵ':'a','ằ':'a','â':'a','ầ':'a','ấ':'a','ẩ':'a','ẫ':'a','ậ':'a','è':'e','é':'e','ẹ':'e','ẻ':'e','ẽ':'e','ê':'e','ề':'e','ế':'e','ệ':'e','ể':'e','ễ':'e','ì':'i','í':'i','ị':'i','ỉ':'i','ĩ':'i','ò':'o','ó':'o','ọ':'o','ỏ':'o','õ':'o','ô':'o','ồ':'o','ố':'o','ộ':'o','ổ':'o','ỗ':'o','ơ':'o','ờ':'o','ớ':'o','ợ':'o','ở':'o','ỡ':'o','ù':'u','ú':'u','ụ':'u','ủ':'u','ũ':'u','ư':'u','ừ':'u','ứ':'u','ự':'u','ử':'u','ữ':'u','ỳ':'y','ý':'y','ỵ':'y','ỷ':'y','ỹ':'y','đ':'d','À':'a','Á':'a','Ả':'a','Ã':'a','Ạ':'a','Ă':'a','Ắ':'a','Ặ':'a','Ẳ':'a','Ẵ':'a','Ằ':'a','Â':'a','Ầ':'a','Ấ':'a','Ẩ':'a','Ẫ':'a','Ậ':'a','È':'e','É':'e','Ẹ':'e','Ẻ':'e','Ẽ':'e','Ê':'e','Ề':'e','Ế':'e','Ệ':'e','Ể':'e','Ễ':'e','Ì':'i','Í':'i','Ị':'i','Ỉ':'i','Ĩ':'i','Ò':'o','Ó':'o','Ọ':'o','Ỏ':'o','Õ':'o','Ô':'o','Ồ':'o','Ố':'o','Ộ':'o','Ổ':'o','Ỗ':'o','Ơ':'o','Ờ':'o','Ớ':'o','Ợ':'o','Ở':'o','Ỡ':'o','Ù':'u','Ú':'u','Ụ':'u','Ủ':'u','Ũ':'u','Ư':'u','Ừ':'u','Ứ':'u','Ự':'u','Ử':'u','Ữ':'u','Ỳ':'y','Ý':'y','Ỵ':'y','Ỷ':'y','Ỹ':'y','Đ':'d'};
+
+function normalizeVi(s) {
+  if (!s) return '';
+  return s.split('').map(function(c){ return _VI_MAP[c] || c.toLowerCase(); }).join('');
+}
+
+function txtMatch(item, needle) {
+  var n = normalizeVi(needle);
+  var words = n.split(/\s+/).filter(function(w){ return w.length > 0; });
+  var hay = normalizeVi((item.name||'') + ' ' + (item.vi||'') + ' ' + (item.en||'') + ' ' + (item.addr||'') + ' ' + (item.tags||''));
+  return words.every(function(w){ return hay.indexOf(w) !== -1; });
+}
+
+
+var _srT = null;
+
+function onSearch(v) {
+  clearTimeout(_srT);
+  _srT = setTimeout(function() { doDropdown(v); }, 150);
+}
+
+function onSearchFocus() {
+  var v = document.getElementById('searchInput').value;
+  if (v.trim()) doDropdown(v);
+}
+
+function onSearchKey(e) {
+  if (e.key === 'Enter') doSearch();
+  if (e.key === 'Escape') closeSearch();
+}
+
+function doSearch() {
+  var v = document.getElementById('searchInput').value.trim();
+  if (v) doDropdown(v);
+  else closeSearch();
+}
+
+function doDropdown(val) {
+  var drop = document.getElementById('searchDrop');
+  var ov = document.getElementById('srOverlay');
+  if (!drop || !ov) return;
+  if (!val || !val.trim()) {
+    drop.classList.remove('show');
+    ov.classList.remove('show');
+    return;
+  }
+
+  var res = ALL_ITEMS.filter(function(item) {
+    return txtMatch(item, val);
+  }).slice(0, 12);
+
+  var catIcon = {sight:'🏛️', food:'🍜', hotel:'🏨'};
+  var catLbl  = {
+    sight: LANG==='vi' ? 'Danh Lam'  : LANG==='zh' ? '景点' : 'Landmark',
+    food:  LANG==='vi' ? 'Ẩm Thực'   : LANG==='zh' ? '美食' : 'Food',
+    hotel: LANG==='vi' ? 'Khách Sạn' : LANG==='zh' ? '酒店' : 'Hotel'
+  };
+  var googleHref = 'https://www.google.com/search?q=' + encodeURIComponent(val + ' Vũng Tàu');
+  var googleRow = '<a href="' + googleHref + '" target="_blank" rel="noopener" class="sd-item" style="background:#f8f9ff;border-top:2px solid #eee" onclick="closeSearch()">' +
+    '<div class="sd-icon" style="background:#fff;border:1px solid #ddd"><img src="https://www.google.com/favicon.ico" style="width:20px;height:20px;object-fit:contain"></div>' +
+    '<div><div class="sd-name" style="color:#0077b6">🔍 ' + (LANG==='vi' ? 'Tìm "' + val + '" trên Google' : LANG==='zh' ? '在Google搜索"' + val + '"' : 'Search "' + val + '" on Google') + '</div>' +
+    '<div class="sd-cat">' + (LANG==='vi' ? 'Mở Google tìm kiếm' : LANG==='zh' ? '打开Google搜索' : 'Open Google search') + '</div></div></a>';
+
+  if (!res.length) {
+    drop.innerHTML =
+      '<div class="sd-item" style="cursor:default;opacity:.7">' +
+        '<div class="sd-icon">😕</div>' +
+        '<div><div class="sd-name">' + (LANG==='vi' ? 'Không có kết quả trong trang' : LANG==='zh' ? '页面内无结果' : 'No results on this page') + '</div>' +
+        '<div class="sd-cat">' + (LANG==='vi' ? 'Thử tìm trên Google bên dưới' : LANG==='zh' ? '请在下方用Google搜索' : 'Try Google below') + '</div></div></div>' +
+      googleRow;
+  } else {
+    drop.innerHTML = res.map(function(item) {
+      var dispName = (LANG==='en' && item.en) ? item.en : item.name;
+      var cat = (catIcon[item.type]||'') + ' ' + (catLbl[item.type]||'');
+      var addr = item.addr ? ' · ' + item.addr : '';
+      var ico = (item.icon && item.icon.indexOf('http') === 0)
+        ? '<img src="' + item.icon + '" style="width:26px;height:26px;border-radius:6px;object-fit:contain" onerror="this.parentNode.textContent=\'' + (catIcon[item.type]||'📌') + '\'">'
+        : (item.icon || '📌');
+      return '<a href="' + (item.url||'#travel') + '" target="' + (item.url?'_blank':'_self') + '" rel="noopener" class="sd-item" onclick="closeSearch()">' +
+        '<div class="sd-icon">' + ico + '</div>' +
+        '<div><div class="sd-name">' + dispName + '</div>' +
+        '<div class="sd-cat">' + cat + addr + '</div></div></a>';
+    }).join('') + googleRow;
+  }
+
+  drop.classList.add('show');
+  ov.classList.add('show');
+}
+
+function closeSearch() {
+  var drop = document.getElementById('searchDrop');
+  var ov = document.getElementById('srOverlay');
+  if (drop) drop.classList.remove('show');
+  if (ov) ov.classList.remove('show');
+}
+
+
+function todayKey(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
+function anim(id,target,dur){
+  var el=document.getElementById(id);if(!el)return;
+  var start=null;
+  function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(target*e).toLocaleString('vi-VN');if(p<1)requestAnimationFrame(step);}
+  requestAnimationFrame(step);
+}
+function initV(){
+  var v=JSON.parse(localStorage.getItem('kv')||'{}'),t=todayKey();
+  if(!v[t])v[t]=0;v[t]++;localStorage.setItem('kv',JSON.stringify(v));
+  var td=v[t],tot=Object.values(v).reduce(function(a,b){return a+b;},0)+12480;
+  var sh=parseInt(localStorage.getItem('ks')||'0')+3240;
+  anim('vcToday',td,900);anim('vcTotal',tot,1600);
+  anim('vcOnline',Math.floor(Math.random()*22)+8,700);anim('vcShare',sh,1200);
+  setInterval(function(){var e=document.getElementById('vcOnline');if(e)e.textContent=(Math.floor(Math.random()*22)+8).toLocaleString('vi-VN');},30000);
+}
+
+function setLang(lang){
+  LANG=lang;localStorage.setItem('ktcn-lang',lang);document.documentElement.lang=lang;
+  document.querySelectorAll('[data-vi]').forEach(function(el){el.textContent=el.getAttribute('data-'+lang)||el.getAttribute('data-vi');});
+  document.querySelectorAll('.lang-vi,.lang-en,.lang-zh').forEach(function(el){
+    var parent=el.parentElement;
+    var hasZh=lang==='zh'&&parent.querySelector('.lang-zh');
+    if(lang==='zh'){
+      el.hidden=hasZh?!el.classList.contains('lang-zh'):!el.classList.contains('lang-vi');
+    } else {
+      el.hidden=!el.classList.contains('lang-'+lang);
+    }
+  });
+  document.querySelectorAll('[data-vi-ph]').forEach(function(el){el.placeholder=el.getAttribute('data-'+lang+'-ph')||el.getAttribute('data-vi-ph');});
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===lang);});
+}
+
+function switchTab(name){
+  ['sights','food','hotel','map'].forEach(function(t){
+    document.getElementById('tab-'+t+'-content').classList.toggle('active',t===name);
+    document.getElementById('tab-'+t).classList.toggle('active',t===name);
+  });
+}
+
+function shareWeb(){
+  var url=window.location.href;
+  if(navigator.share){navigator.share({title:'Du Lịch Vũng Tàu',url:url}).catch(function(){});}
+  else{safeCopy(url,LANG==='vi'?'✅ Đã sao chép! Chia sẻ ngay nhé 🚀':LANG==='zh'?'✅ 已复制！快分享吧 🚀':'✅ Copied! Share it now 🚀');}
+  var s=parseInt(localStorage.getItem('ks')||'0')+1;localStorage.setItem('ks',s);
+  var e=document.getElementById('vcShare');if(e)e.textContent=(s+3240).toLocaleString('vi-VN');
+}
+function copyLink(){safeCopy(window.location.href,LANG==='vi'?'✅ Đã sao chép link web!':LANG==='zh'?'✅ 网址已复制！':'✅ Website link copied!');}
+var _toastTimer;
+function showToast(msg){
+  var t=document.getElementById('toast');
+  if(!t)return;
+  t.textContent=msg;
+  t.classList.add('show');
+  clearTimeout(_toastTimer);
+  _toastTimer=setTimeout(function(){t.classList.remove('show');},3200);
+}
+function safeCopy(text,successMsg){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){showToast(successMsg);}).catch(function(){_execCopy(text,successMsg);});
+  }else{_execCopy(text,successMsg);}
+}
+function _execCopy(text,successMsg){
+  var ta=document.createElement('textarea');
+  ta.value=text;ta.style.cssText='position:fixed;top:-9999px;left:-9999px;opacity:0;pointer-events:none';
+  document.body.appendChild(ta);ta.focus();ta.select();
+  try{document.execCommand('copy');showToast(successMsg);}
+  catch(e){showToast(LANG==='vi'?'💡 Sao chép thủ công: '+text.replace('https://',''):'💡 Copy: '+text.replace('https://',''));}
+  document.body.removeChild(ta);
+}
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open');}
+function closeMenu(){document.getElementById('mobMenu').classList.remove('open');}
+
+var _installPrompt = null;
+
+window.addEventListener('beforeinstallprompt', function(e) {
+  e.preventDefault();
+  _installPrompt = e;
+  var btn = document.getElementById('installBtn');
+  if (btn) btn.style.display = 'block';
+});
+
+window.addEventListener('appinstalled', function() {
+  _installPrompt = null;
+  var btn = document.getElementById('installBtn');
+  if (btn) btn.style.display = 'none';
+  showToast(LANG==='vi' ? '✅ Đã cài app thành công! Mở từ màn hình chính nhé 🎉' : LANG==='zh' ? '✅ 安装成功！从主屏幕打开 🎉' : '✅ App installed! Open from your home screen 🎉');
+});
+
+function installApp() {
+  if (_installPrompt) {
+    _installPrompt.prompt();
+    _installPrompt.userChoice.then(function(r) {
+      if (r.outcome === 'accepted') _installPrompt = null;
+    });
+  } else {
+    showToast(LANG==='vi'
+      ? '💡 Trên Chrome: menu ⋮ → "Cài đặt ứng dụng". Safari: nút Chia sẻ → "Thêm vào màn hình chính"'
+      : LANG==='zh' ? '💡 Chrome：菜单 ⋮ → "安装应用"。Safari：分享按钮 → "添加到主屏幕"'
+      : '💡 Chrome: menu ⋮ → "Install app". Safari: Share → "Add to Home Screen"');
+  }
+}
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').catch(function(){});
+  });
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  buildSearchIndex();setLang(LANG);initV();
+});
+</script>
+</body>
+</html>
